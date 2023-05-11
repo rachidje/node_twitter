@@ -58,7 +58,8 @@ exports.getCurrentUserTweetsWithFollowing = (user) => {
         .exec();
 }
 
-exports.findTweetAndDelete = (tweetId) => {
+exports.findTweetAndDelete = async (tweetId) => {
+    await Tweet.deleteMany({ 'retweeted.initialTweet': tweetId });
     return Tweet.findByIdAndDelete(tweetId).exec();
 }
 

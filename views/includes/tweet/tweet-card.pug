@@ -43,11 +43,7 @@
                         span= tweet.comments.length
                 i.fa-heart(class = tweet.nbLikes > 0 ? "fa-solid" : "fa-regular" data-id= tweet._id) 
                     span= tweet.nbLikes
-                if (tweet.author._id.toString() !== currentUser._id.toString()) 
-                    a(href=`/tweet/share/${tweet._id}`) 
-                        i.fa-solid.fa-retweet(data-id= tweet._id) 
-                            span= tweet.nbShares
-                else 
+                a(href=`/tweet/share/${tweet._id}`) 
                     i.fa-solid.fa-retweet(data-id= tweet._id) 
                         span= tweet.nbShares
         
