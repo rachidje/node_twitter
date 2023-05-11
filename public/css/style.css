@@ -398,7 +398,7 @@ ul {
   flex-wrap: wrap; }
   @media (min-width: 1200px) {
     .profile {
-      position: absolute;
+      position: fixed;
       top: 15%;
       left: 0;
       width: 20%;
@@ -426,6 +426,7 @@ ul {
   padding: 1rem;
   border-bottom: 1px solid #fefefe38;
   background-color: black;
+  z-index: 4;
   display: flex;
   flex-direction: row;
   justify-content: center;

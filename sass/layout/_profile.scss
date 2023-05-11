@@ -10,7 +10,7 @@
   @include flex($justify: space-around);
 
   @include xl {
-    position: absolute;
+    position: fixed;
     top: 15%;
     left: 0;
     width: 20%;
