@@ -1,0 +1,26 @@
+.topbar
+  if currentUser
+    .topbar-avatar
+      img(src=currentUser.avatar width="50" height="50")
+  .topbar-logo
+    a(href="/")
+      //- img(src="https://cdn.cdnlogo.com/logos/t/48/twitter.png" width="40" height="40")
+
+if currentUser
+  #topbar-menu.topbar-menu
+    .topbar-menu-avatar
+      img(src=currentUser.avatar width="50" height="50")
+    .topbar-menu-user 
+      a(href=`/user/${currentUser.username}`)
+        span Voir mon profil
+      p= currentUser.fullName
+      span @#{currentUser.username}
+
+      p Tweet#{tweets.length > 1 ? 's': ''}
+      span= tweets.length
+      
+      p Abonnement#{currentUser.followings.length > 1 ? 's': ''}
+      span= currentUser.followings.length
+
+      p Abonné#{currentUser.followers.length > 1 ? 's': ''}
+      span= currentUser.followers.length

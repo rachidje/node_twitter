@@ -1,0 +1,53 @@
+.tweet(data-id= tweet._id)
+    if tweet.retweeted.status
+        if isAuthenticated && tweet.author._id.toString() === currentUser._id.toString()
+            p.share-info
+                i.fa-solid.fa-retweet
+                | Vous avez partagé
+        else 
+            p.share-info
+                i.fa-solid.fa-retweet
+                | #{tweet.author.fullName} a partagé
+    .tweet-card
+        .tweet-card-avatar 
+            if tweet.retweeted.status
+                img(src=tweet.retweeted.initialTweet.author.avatar, alt="" width="40" height="40")
+            else
+                img(src=tweet.author.avatar, alt="" width="40" height="40")
+        .tweet-card-data 
+            .tweet-card-data-author
+                if tweet.retweeted.status
+                    a(href=`/user/${tweet.retweeted.initialTweet.author.username}`)
+                        p #{tweet.retweeted.initialTweet.author.fullName}
+                        p 
+                            span= moment(tweet.retweeted.date).fromNow()
+                else 
+                    a(href=`/user/${tweet.author.username}`)
+                        p #{tweet.author.fullName}
+                        p 
+                            span= moment(tweet.createdAt).fromNow()
+                    if isAuthenticated && tweet.author._id.toString() === currentUser._id.toString()
+                        .tweet-card-data-author-actions 
+                            a(href=`/tweet/edit/${tweet._id}`)
+                                i.fa-solid.fa-pen-to-square
+                            a(href=`/tweet/delete/${tweet._id}`)
+                                i.fa-solid.fa-trash
+            .tweet-card-data-body 
+                p= tweet.content
+            if tweet.image
+                .tweet-card-data-image
+                    img(src=tweet.image, alt="image tweet")
+            .tweet-card-data-actions 
+                a(href=`/tweet/${tweet._id}`)
+                    i.fa-comment(class = tweet.comments.length ? "fa-solid" : "fa-regular") 
+                        span= tweet.comments.length
+                i.fa-heart(class = tweet.nbLikes > 0 ? "fa-solid" : "fa-regular" data-id= tweet._id) 
+                    span= tweet.nbLikes
+                if (tweet.author._id.toString() !== currentUser._id.toString()) 
+                    a(href=`/tweet/share/${tweet._id}`) 
+                        i.fa-solid.fa-retweet(data-id= tweet._id) 
+                            span= tweet.nbShares
+                else 
+                    i.fa-solid.fa-retweet(data-id= tweet._id) 
+                        span= tweet.nbShares
+        

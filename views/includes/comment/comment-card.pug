@@ -1,0 +1,15 @@
+.tweet-card(data-id= comment._id)
+    .tweet-card-avatar 
+        img(src=comment.author.avatar, alt="" width="40" height="40")
+    .tweet-card-data 
+        .tweet-card-data-author
+            a(href=`/user/${comment.author.username}`)
+                p #{comment.author.fullName}
+                p 
+                    span= moment(comment.createdAt).fromNow()
+            if isAuthenticated && comment.author._id.toString() === currentUser._id.toString()
+                .tweet-card-data-author-actions 
+                    i.fa-solid.fa-ellipsis-vertical
+        .tweet-card-data-body 
+            p= comment.message
+    

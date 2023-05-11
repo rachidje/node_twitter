@@ -1,0 +1,198 @@
+.tweet {
+    width: 100%;
+    position: relative;
+    @include flex;
+
+    @include sm {
+        @include flex;
+        width: 75%;
+        border: 1px solid $text-color;
+        border-radius: 15px;
+        margin-bottom: 1rem;
+    }
+
+    @include lg {
+        width: 50%;
+    }
+
+    @include xl {
+        width: 40%;
+    }
+
+
+    .share-info {
+        color: white; 
+        margin-left: 1rem; 
+        margin-top: 1rem; 
+        color: $text-color; 
+        font-size: .8rem;
+
+        i{
+            margin-right: .5rem
+        }
+    }
+
+    .tweet-card {
+        width: 100%;
+        margin-top: .2rem;
+        padding: 1rem;
+        border-bottom: 1px solid #989898bf;
+        @include flex;
+
+        @include sm {
+            border-bottom: none;
+        }
+    
+    
+        &-avatar {
+            width: 15%;
+            align-self: flex-start;
+    
+            img {
+                border-radius: 50%;
+                border: 1px solid $primary-color;
+            }
+        }
+    
+        &-data {
+            width: 85%;
+    
+            &-author {
+                width: 100%;
+                font-size: 1.2rem;
+    
+                @include flex($justify: flex-start);
+    
+                p {
+                    color: white !important;
+                    font-weight: 400;
+                    margin-right: .5rem;
+                    font-size: 1.2rem;
+    
+                    &:hover {
+                        cursor: pointer;
+                        color: $primary-color !important;
+                    }
+                }
+    
+                a {
+                    p {
+                        color: #989898bf!important;
+                    }
+                }
+    
+                p {
+                    color: #989898bf;
+                    span {
+                        font-size: .8rem;
+                    }
+                }
+    
+                &-actions {
+                    width: 100%;
+                    flex: 1;
+    
+                    @include flex($justify: flex-end);
+    
+                    i {
+                        color: #989898bf;
+                        margin-left: .5rem;
+                        cursor: pointer;
+    
+                        &:hover {
+                            color: $primary-color;
+                        }
+    
+                    }
+                }
+    
+            }
+    
+            &-body {
+                padding: .5rem;
+                p {
+                    color: white;
+                    font-size: 1.2rem;
+                }
+            }
+    
+            &-image {
+                margin: .5rem auto;
+                width: 100%;
+                height: 25rem;
+                @include flex;
+                
+                @include md {
+                    height: inherit;
+                }
+                
+                img {
+                    width: 100%;
+                    border: 1px solid #6b6b6b;
+                    border-radius: 5px;
+
+                    @include sm {
+                        width: 70%;
+                    }
+                }
+            }
+    
+            &-actions {
+                padding: 1rem;
+    
+                @include flex($justify: space-around);
+    
+                i {
+                    color: #989898bf;
+    
+                    &:hover {
+                        color: $primary-color;
+                        cursor: pointer;
+                    }
+                    
+                    span {
+                        font-weight: 400;
+                    }
+                }
+            }
+        }
+    
+    }
+    
+    .tweet-options {
+        width: 100%;
+        height: 30%;
+        position: fixed;
+        bottom: -300px;
+        left: 0;
+        box-shadow: $box-shadow-top;
+        background-color: black;
+        color: white;
+    
+        @include flex($direction: column);
+
+        @include xl {
+            width: 30%;
+        }
+    
+        i {
+            margin-bottom: 2rem;
+            font-size: 1.2rem;
+            z-index: 1;
+            cursor: pointer;
+    
+            &:hover {
+                color: $primary-color;
+            }
+    
+            span {
+                margin-left: 1rem;
+    
+                &:hover {
+                    color: $primary-color;
+                }
+            }
+        }
+    }
+}
+

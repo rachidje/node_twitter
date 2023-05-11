@@ -1,0 +1,28 @@
+extends ../layout.pug
+
+block content
+    include ../includes/profile.pug
+    section 
+        .content-box 
+            .form-box
+                h2 Inscription 
+                form(action="/user/signup" method="post") 
+                    .input-box 
+                        input#username(type="text", name="username" placeholder= "Username")
+                    .input-box 
+                        input#firstname(type="text", name="firstname" placeholder= "Firstname")
+                    .input-box 
+                        input#lastname(type="text", name="lastname" placeholder= "Lastname")
+                    .input-box 
+                        input#email(type="email", name="email" placeholder= "Email")
+                    .input-box 
+                        input#password(type="password", name="password" placeholder= "Password")
+                    .input-box 
+                        input(type="submit", value="S'inscrire" class="btn btn-primary")
+                    .input-box 
+                        p Vous avez un compte ?
+                            a(href="/auth/signin/form")  Se connecter
+                    if errors
+                        ul 
+                            each error in errors 
+                                li(class= "text-danger")= error

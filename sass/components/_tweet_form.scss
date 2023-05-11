@@ -1,0 +1,100 @@
+.tweet-form {
+  margin-top: 20%;
+  width: 100%;
+  padding: 1rem;
+  box-shadow: $box-shadow;
+
+  @include flex;
+
+  @include sm {
+    width: 70%;
+    margin: 20% auto 0;
+  }
+
+  @include md {
+    margin-top: 15%;
+  }
+
+  @include lg {
+    width: 50%;
+  }
+
+  @include xl {
+    width: 40%;
+    margin-top: 10%;
+  }
+
+  &-avatar {
+    width: 10%;
+    align-self: flex-start;
+
+    img {
+      border: 2px solid $primary-color;
+      border-radius: 50%;
+    }
+  }
+
+  &-form {
+    width: 90%;
+
+    form {
+      width: 100%;
+    }
+
+    .form-title {
+      h4 {
+        color: white;
+        padding-bottom: 1rem;
+      }
+    }
+
+    .form-body {
+      width: 100%;
+
+      @include flex($direction: column);
+
+      .form-item {
+        width: 100%;
+
+        textarea {
+          width: 100%;
+          resize: none;
+          margin-bottom: 1rem;
+          border: 1px solid #fefefe38;
+          height: 7rem;
+          padding: 1rem;
+          background-color: transparent;
+          color: #fefefe;
+          outline: none;
+          overflow: auto;
+          border-style: none;
+          font-size: 1.2rem;
+        }
+
+        p {
+          color: $text-color;
+        }
+
+        &-image {
+          color: white;
+          font-size: 1.2rem;
+          flex: 1;
+
+          i:hover {
+            cursor: pointer;
+            color: $primary-color;
+          }
+
+          span {
+            font-size: 1rem;
+            margin-left: 1rem;
+          }
+        }
+
+        &:last-child {
+          @include flex($justify: flex-end);
+        }
+      }
+    }
+  }
+}

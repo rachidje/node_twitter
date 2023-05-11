@@ -1,0 +1,11 @@
+extends ../layout.pug 
+
+block content 
+    script(src="/js/user/search-bar.js" defer)
+    .search
+        .search-bar
+            i.fa-solid.fa-magnifying-glass
+            input#search-input(type="text", name="search" placeholder="Vous cherchez quelqu'un ?")
+        .search-result
+            .results
+    include ../includes/profile.pug

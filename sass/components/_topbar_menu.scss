@@ -1,0 +1,74 @@
+.topbar-menu {
+
+    position: fixed;
+    top: 0;
+    left: -350px;
+    width: 300px;
+    height: 100%;
+    background-color: black;
+    box-shadow: $box-shadow;
+    padding: 1rem;
+    color: white;
+    transition: left .5s ease-in-out;
+
+    @include flex($direction: column, $justify: flex-start, $align: flex-start);
+    
+    &-avatar {
+
+        img {
+            border-radius: 50%;
+            border: 1px solid $primary-color;
+            cursor: pointer;
+        }
+    }
+
+    &-user {
+        a {
+            margin-top: 2rem;
+
+            &:hover span {
+                color: $primary-color;
+            }
+        }
+        
+        p {
+            font-size: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        span {
+            color: #fefefe72;
+        }
+    }
+
+    &-data {
+        border-bottom: 1px solid #fefefe72;
+        padding-bottom: 2rem;
+        margin: 2rem 0;
+        @include flex;
+
+        p {
+            margin-right: .5rem;
+
+            span {
+                font-weight: bold;
+            }
+        }
+    }
+
+    &-options {
+        padding-left: 1rem;
+
+        @include flex($direction: column, $align: flex-start);
+
+        i {
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+
+            span {
+                margin-left: 1rem;
+                font-weight: 400;
+            }
+        }
+    }
+}

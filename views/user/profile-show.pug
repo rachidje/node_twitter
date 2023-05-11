@@ -1,0 +1,12 @@
+extends ../layout.pug
+
+block content
+    .user-content 
+        include ../includes/user/user-profile.pug 
+
+    .tweets-user-container
+        .tweets-user-list 
+            if tweets 
+                each tweet in tweets
+                    include ../includes/tweet/tweet-card.pug
+    include ../includes/profile.pug

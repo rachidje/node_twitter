@@ -1,0 +1,17 @@
+.tweets-container {
+    margin-top: 6rem;
+    margin-bottom: 6rem;
+
+    @include sm {
+        @include flex;
+        margin-top: 7rem;
+        width: 100%;
+    }
+
+    @include lg {
+        width: 100%;
+        margin-top: 10rem;
+
+        @include flex($direction: column);
+    }
+}

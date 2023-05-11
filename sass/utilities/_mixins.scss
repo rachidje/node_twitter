@@ -1,0 +1,31 @@
+@mixin flex($direction: row, $justify: center, $align: center, $wrap: wrap) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+  flex-wrap: $wrap;
+}
+
+@mixin sm {
+  @media (min-width: $screen-sm) {
+    @content;
+  }
+}
+
+@mixin md {
+  @media (min-width: $screen-md) {
+    @content;
+  }
+}
+
+@mixin lg {
+  @media (min-width: $screen-lg) {
+    @content;
+  }
+}
+
+@mixin xl {
+  @media (min-width: $screen-xl) {
+    @content;
+  }
+}

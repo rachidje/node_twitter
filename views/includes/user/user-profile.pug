@@ -1,0 +1,42 @@
+.user-profile
+    .user-profile-bg
+    .user-profile-img
+        if isAuthenticated && currentUser._id.toString() === user._id.toString()
+            form(
+                id="form-container"
+                action="/user/update/image"
+                method="post"
+                enctype="multipart/form-data"
+            )
+                i(class="fa-regular fa-pen-to-square")
+                input(type="file", name="avatar" id="avatar" style="display: none")
+                img#profile-image(src=currentUser.avatar, alt="")
+        else
+            img(src=user.avatar, alt="")
+    .user-profile-info
+        p #{user.fullName}
+        h3 @#{user.username}
+        span 
+            i.fa-regular.fa-calendar-days 
+            |  A rejoint twitter en #{user.createdAt.toLocaleString('fr', { month: 'long' })} #{user.createdAt.getFullYear()}
+
+    if currentUser._id.toString() !== user._id.toString()
+        .user-profile-actions 
+            if currentUser.followings.includes(user._id.toString())
+                a(data-userid = user._id class="btn btn-secondary") unfollow
+            else 
+                a(data-userid = user._id class="btn btn-primary") follow
+        
+    .user-profile-data 
+        .user-profile-data-posts
+            p 
+                span #{tweets.length}
+                | Tweet#{tweets.length > 1 ? 's': ''}
+        .user-profile-data-followers 
+            p 
+                span #{user.followers.length} 
+                | Abonné#{user.followers.length > 1 ? 's': ''} 
+        .user-profile-data-following 
+            p 
+                span #{user.followings.length} 
+                | Abonnement#{user.followings.length > 1 ? 's': ''}

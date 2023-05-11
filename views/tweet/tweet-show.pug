@@ -1,0 +1,9 @@
+extends ../layout.pug
+
+block content
+    include ../includes/profile.pug
+    if currentUser
+        .tweet-show
+            include ../includes/tweet/tweet-card.pug
+            include ../includes/comment/comment-form.pug
+            include ../includes/comment/comment-list.pug

@@ -1,0 +1,16 @@
+form(action=`/comment/new/${tweet._id}` method="post" class="new-comment")
+    .comment-form 
+        .comment-form-avatar
+            img(src=currentUser.avatar width="30" height="30")
+        .comment-form-form 
+            p En réponse à 
+                span @#{tweet.author.username}
+            .comment-form-body 
+                .comment-form-item 
+                    textarea(name="message" placeholder="Tweeter votre réponse ici")
+                if errors 
+                    ul
+                        each error in errors 
+                            li(class="text-danger")= error
+        .comment-form-item
+        input(type="submit", value="Commenter" class="btn btn-primary")

@@ -1,0 +1,15 @@
+.profile
+  a(href='javascript:void(0)', onclick='window.history.back();')
+    i.fa.fa-arrow-left
+  a(href="/") 
+    i.fa-solid.fa-house
+  a(href="/user/search") 
+    i.fa-solid.fa-magnifying-glass
+  if !isAuthenticated
+    a(href="/auth/signin/form") 
+      i.fa-solid.fa-user(title="connexion")
+    a(href="/user/signup/form") 
+      i.fa-solid.fa-right-to-bracket(title="Inscription")
+  else
+    a(href="/auth/signout") 
+      i.fa-solid.fa-arrow-right-from-bracket(title="Deconnexion")

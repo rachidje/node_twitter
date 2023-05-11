@@ -1,0 +1,18 @@
+body {
+  background-color: black;
+}
+
+a {
+  text-decoration: none;
+  color: $text-highlight;
+}
+
+ul {
+  list-style: none;
+}
+
+.text-danger {
+  width: 100%;
+  color: red;
+  margin: .5rem 0;
+}

@@ -1,0 +1,24 @@
+.tweet-form 
+  .tweet-form-avatar
+    img(src=currentUser.avatar width="30" height="30")
+  .tweet-form-form 
+    form(
+      class="form-new" 
+      action=tweet ? `/tweet/edit/${tweet._id}` : '/tweet/new' 
+      method="post"
+      enctype="multipart/form-data"
+    )
+      .form-body 
+          .form-item 
+            textarea(name="content" placeholder="Quoi de neuf aujourd'hui ?")= tweet ? tweet.content : ''
+          if errors 
+            ul
+              each error in errors 
+                  li(class="text-danger")= error
+          .form-item
+            .form-item-image
+              input(type="file", name="image" id="image" style="display: none")
+              i#upload-image.fa-regular.fa-image
+              span#filename-image
+
+            input(type="submit", value=tweet ? 'Sauvegarder' : 'Tweeter' class="btn btn-primary")

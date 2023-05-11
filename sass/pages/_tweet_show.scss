@@ -1,0 +1,12 @@
+.tweet-show {
+    margin-top: 7rem;
+    @include flex($direction: column);
+
+}
+
+.comment-list {
+    margin-bottom: 4rem;
+    width: 100%;
+  
+    @include flex($direction: column);
+}

@@ -1,0 +1,4 @@
+node_modules
+environment
+ecosystem.config.js
+public/images/avatars

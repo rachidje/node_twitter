@@ -1,0 +1,9 @@
+extends layout.pug
+
+block content
+  include includes/profile.pug
+  if currentUser
+    include includes/tweet/tweet-form.pug
+  .tweets-container
+    each tweet in tweets
+      include includes/tweet/tweet-card.pug
